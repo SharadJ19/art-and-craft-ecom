@@ -30,8 +30,8 @@ This e-commerce platform connects artisans and craft enthusiasts with quality su
 
 ### 📥 Clone the Repository
 ```bash
-git clone https://github.com/sharadj19/art-craft-ecom.git
-cd art-craft-ecom
+git clone https://github.com/sharadj19/art-and-craft-ecom.git
+cd art-and-craft-ecom
 ```
 
 ### 📦 Install Backend Dependencies
