@@ -10,6 +10,7 @@ const sequelize = new Sequelize({
   username: dbConfig.username,
   password: dbConfig.password,
   host: dbConfig.host,
+  port: dbConfig.port,
   dialect: dbConfig.dialect, // Explicitly specify the dialect
   logging: false,
   pool: {
