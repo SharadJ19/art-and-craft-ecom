@@ -59,12 +59,30 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (name, email, password) => {
     try {
-      const { data } = await api.post('/auth/register', { name, email, password });
-      localStorage.setItem('token', data.token);
-      setUser(data.user);
-      return { success: true };
+      const response = await api.post('/auth/register', { name, email, password });
+      console.log('Registration response:', response); // Debug log
+      
+      if (response.success) {
+        localStorage.setItem('token', response.token);
+        setUser({
+          id: response.id,
+          name: response.name,
+          email: response.email,
+          isAdmin: response.isAdmin
+        });
+        return { success: true };
+      } else {
+        return { 
+          success: false, 
+          message: response.message || 'Registration failed' 
+        };
+      }
     } catch (error) {
-      return { success: false, message: error.response?.data?.message || 'Registration failed' };
+      console.error('Registration error:', error);
+      return { 
+        success: false, 
+        message: error.response?.data?.message || 'Registration failed' 
+      };
     }
   };
 
